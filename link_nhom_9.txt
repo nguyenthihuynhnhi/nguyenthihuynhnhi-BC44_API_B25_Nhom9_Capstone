@@ -1,0 +1,4 @@
+Link phân chia nhóm: https://docs.google.com/spreadsheets/d/102cpeeOq4c1X1Y-chF3O7Dm1l8umA2dWBe2c2uYCrfg/edit#gid=0
+Link gitlab: https://gitlab.com/huynhnhinguyen0301/bc44_api_b25_nhom9_capstone
+Link youtube: https://www.youtube.com/watch?v=z9boLdNDmGE
+Link deploy: https://bc44-api-b25-nhom9-capstone.vercel.app/

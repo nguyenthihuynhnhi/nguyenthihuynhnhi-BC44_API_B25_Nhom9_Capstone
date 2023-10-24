@@ -1,0 +1,5 @@
+{
+  "prettier.tabWidth": 5,
+  "prettier.quoteProps": "consistent",
+  "prettier.printWidth": 90
+}

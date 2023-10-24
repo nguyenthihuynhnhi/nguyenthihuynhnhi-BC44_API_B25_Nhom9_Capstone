@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tMobile - Customer</title>
+
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      href="../asset/img/favicon/logo_180x180.png"
+      sizes="180x180"
+    />
+    <link
+      rel="icon"
+      href="../asset/img/favicon/logo_32x32.png"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      href="../asset/img/favicon/logo_16x16.png"
+      sizes="16x16"
+      type="image/png"
+    />
+
+    <!-- FONT -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- TOAST -->
+    <link rel="stylesheet" href="../vendor/toastify/toastify.css" />
+
+    <!-- TAILWIN -->
+    <link rel="stylesheet" href="../src/css/customer/output.css" />
+  </head>
+  <body
+    class="antialiased text-slate-800 dark:text-slate-400 bg-white dark:bg-slate-900"
+  >
+    <!-- LOADDING -->
+    <div
+      class="body_loading flex hidden fixed z-[99999] inset-0 bg-gray-950 bg-opacity-75 items-center justify-center"
+    >
+      <div class="custom-loader"></div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div
+      class="absolute top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
+    >
+      <div class="flex-none flex justify-end">
+        <picture
+          ><source
+            srcset="
+              https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif
+            "
+            type="image/avif" />
+          <img
+            src="https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif"
+            alt=""
+            class="flex-none max-w-none dark:hidden"
+            decoding="async" /></picture
+        ><picture
+          ><source
+            srcset="
+              https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif
+            "
+            type="image/avif" />
+          <img
+            src="https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif"
+            alt=""
+            class="flex-none max-w-none hidden dark:block"
+            decoding="async"
+        /></picture>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="absolute inset-x-0 top-0 z-50 h-20">
+      <nav
+        class="h-full flex items-center justify-between p-6 lg:px-8 text-slate-700 dark:text-slate-200"
+        aria-label="Global"
+      >
+        <!-- LOGO -->
+        <div class="flex lg:flex-1 h-full">
+          <a href="../index.html" class="h-full">
+            <img
+              class="h-full hidden dark:block"
+              src="../../asset/img/logo-white.png"
+              alt=""
+            />
+            <img
+              class="h-full dark:hidden"
+              src="../../asset/img/logo-dark.png"
+              alt=""
+            />
+          </a>
+        </div>
+        <div class="flex lg:hidden gap-4 items-center">
+          <!-- MOBILE -->
+          <button
+            id="M_theme-toggle"
+            type="button"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+          >
+            <svg
+              aria-hidden="true"
+              id="M_theme-toggle-dark-icon"
+              class="w-5 h-5 hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              ></path>
+            </svg>
+            <svg
+              aria-hidden="true"
+              id="M_theme-toggle-light-icon"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <button
+            id="M_btn_show-nav"
+            type="button"
+            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a
+            href="#product"
+            class="text-sm font-semibold leading-6 hover:text-sky-500 dark:hover:text-sky-400"
+            >Product</a
+          >
+          <a
+            href="#"
+            class="text-sm font-semibold leading-6 hover:text-sky-500 dark:hover:text-sky-400"
+            >Features</a
+          >
+          <a
+            href="#"
+            class="text-sm font-semibold leading-6 hover:text-sky-500 dark:hover:text-sky-400"
+            >Marketplace</a
+          >
+          <a
+            href="#"
+            class="text-sm font-semibold leading-6 hover:text-sky-500 dark:hover:text-sky-400"
+            >Company</a
+          >
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-4 items-center">
+          <button
+            id="theme-toggle"
+            type="button"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+          >
+            <svg
+              aria-hidden="true"
+              id="theme-toggle-dark-icon"
+              class="w-5 h-5 hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              ></path>
+            </svg>
+            <svg
+              aria-hidden="true"
+              id="theme-toggle-light-icon"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div id="M-nav" class="hidden" role="dialog" aria-modal="true">
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div
+          id="M-nav_backdrop"
+          class="fixed inset-0 z-50 bg-gray-500 bg-opacity-75 opacity-0"
+        ></div>
+
+        <!-- MOBILE NAV CONTENT -->
+        <div
+          id="M-nav_content"
+          class="translate-x-full fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 text-slate-700"
+        >
+          <div class="flex items-center justify-between">
+            <!-- LOGO MOBILE -->
+            <a href="#" class="-m-1.5 p-1.5 basis-1/4">
+              <img
+                class="w-full"
+                src="../../asset/./img/logo-dark.png"
+                alt=""
+              />
+            </a>
+            <button
+              id="M_btn_close-nav"
+              type="button"
+              class="-m-2.5 rounded-md p-2.5"
+            >
+              <span class="sr-only">Close menu</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                  >Product</a
+                >
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                  >Features</a
+                >
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                  >Marketplace</a
+                >
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                  >Company</a
+                >
+              </div>
+              <div class="py-6">
+                <a
+                  href="#"
+                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50"
+                  >Log in</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="pt-40 pb-20 relative">
+      <div
+        class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        aria-hidden="true"
+      >
+        <div
+          class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          style="
+            clip-path: polygon(
+              74.1% 44.1%,
+              100% 61.6%,
+              97.5% 26.9%,
+              85.5% 0.1%,
+              80.7% 2%,
+              72.5% 32.5%,
+              60.2% 62.4%,
+              52.4% 68.1%,
+              47.5% 58.3%,
+              45.2% 34.5%,
+              27.5% 76.7%,
+              0.1% 64.9%,
+              17.9% 100%,
+              27.6% 76.8%,
+              76.1% 97.7%,
+              74.1% 44.1%
+            );
+          "
+        ></div>
+      </div>
+      <!-- HERO CONTENT -->
+      <div class="flex justify-center lg:justify-between">
+        <!-- HERO LEFT -->
+        <div class="pl-6 lg:px-8 py-28 max-w-2xl">
+          <div class="text-center lg:justify-start lg:mb-8 mb-4 lg:flex">
+            <div
+              class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"
+            >
+              Announcing our next round of funding.
+              <a href="#" class="font-semibold text-indigo-600"
+                ><span class="absolute inset-0" aria-hidden="true"></span>Read
+                more <span aria-hidden="true">&rarr;</span></a
+              >
+            </div>
+          </div>
+          <div class="text-center lg:text-left">
+            <h1
+              class="text-4xl font-bold tracking-tight dark:text-gray-300 sm:text-6xl"
+            >
+              Data to enrich your online business
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-gray-600">
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+              fugiat aliqua.
+            </p>
+            <div
+              class="mt-10 flex items-center justify-center lg:justify-start gap-x-6"
+            >
+              <a
+                href="#"
+                class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >Get started</a
+              >
+              <a
+                href="#"
+                class="text-sm font-semibold leading-6 dark:text-gray-200"
+                >Learn more <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- HERO RIGHT -->
+        <div class="hidden lg:block rounded-s-2xl overflow-hidden">
+          <img
+            class="h-full object-cover object-left"
+            src="https://cdn.tgdd.vn/Files/2023/02/27/1513061/6-280223-021155.jpg"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        aria-hidden="true"
+      >
+        <div
+          class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          style="
+            clip-path: polygon(
+              74.1% 44.1%,
+              100% 61.6%,
+              97.5% 26.9%,
+              85.5% 0.1%,
+              80.7% 2%,
+              72.5% 32.5%,
+              60.2% 62.4%,
+              52.4% 68.1%,
+              47.5% 58.3%,
+              45.2% 34.5%,
+              27.5% 76.7%,
+              0.1% 64.9%,
+              17.9% 100%,
+              27.6% 76.8%,
+              76.1% 97.7%,
+              74.1% 44.1%
+            );
+          "
+        ></div>
+      </div>
+    </section>
+
+    <!-- PRODUCT -->
+    <section class="product-section relative pb-20" id="product">
+      <div class="container px-2">
+        <div
+          class="product mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 outline outline-1 outline-slate-200 dark:outline-slate-500 rounded-xl"
+        >
+          <!-- PRODUCT TITLE -->
+          <div
+            class="flex gap-4 sm:gap-0 flex-col sm:flex-row items-center sm:justify-between"
+          >
+            <h2 class="text-2xl font-bold tracking-tight">
+              Danh sách sản phẩm
+            </h2>
+            <div class="flex items-center gap-4">
+              <!-- DROP DOWN -->
+              <div class="flex items-center gap-2">
+                <label for="screen" class="">Lọc</label>
+                <select id="filter_seclect" class="select_from">
+                  <option disabled selected value="" class="">Chọn hãng</option>
+                  <option value="all" class="">Tất cả</option>
+                  <option value="Apple" class="">Apple</option>
+                  <option value="Samsung" class="">Samsung</option>
+                  <option value="Xiaomi" class="">Xiaomi</option>
+                  <option value="OPPO" class="">OPPO</option>
+                  <option value="Realme" class="">Realme</option>
+                  <option value="Nokia" class="">Nokia</option>
+                  <option value="Oneplus" class="">Oneplus</option>
+                  <option value="vivo" class="">vivo</option>
+                  <option value="Nubia" class="">Nubia</option>
+                  <option value="Tecno" class="">Tecno</option>
+                </select>
+              </div>
+
+              <!-- CART -->
+              <div
+                id="cart"
+                class="cart cursor-pointer relative transition duration-300 hover:text-sky-500 dark:hover:text-sky-400 text-2xl"
+              >
+                <span
+                  class="cart_count hidden absolute top-0 right-0 text-slate-200 bg-indigo-600 text-xs rounded-full p-1 -translate-y-1/2 translate-x-1/2"
+                ></span>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+          </div>
+          <!-- PRODUCT LIST -->
+          <div
+            class="product_list relative mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        aria-hidden="true"
+      >
+        <div
+          class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          style="
+            clip-path: polygon(
+              74.1% 44.1%,
+              100% 61.6%,
+              97.5% 26.9%,
+              85.5% 0.1%,
+              80.7% 2%,
+              72.5% 32.5%,
+              60.2% 62.4%,
+              52.4% 68.1%,
+              47.5% 58.3%,
+              45.2% 34.5%,
+              27.5% 76.7%,
+              0.1% 64.9%,
+              17.9% 100%,
+              27.6% 76.8%,
+              76.1% 97.7%,
+              74.1% 44.1%
+            );
+          "
+        ></div>
+      </div>
+    </section>
+
+    <!-- CART -->
+    <section class="cart-section hidden">
+      <div class="relative z-50">
+        <!-- Background backdrop -->
+        <div
+          class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
+        ></div>
+
+        <!-- CART-CONTENT -->
+        <div class="fixed overflow-hidden">
+          <div id="cart_box" class="absolute inset-0 overflow-hidden">
+            <div
+              class="pointer-events-none fixed inset-y-0 right-0 flex justify-end w-screen sm:pl-10"
+            >
+              <!-- CART-SLIDE -->
+              <div
+                class="cart-slide relative translate-x-full pointer-events-auto"
+              >
+                <!-- LOADDING -->
+                <div
+                  class="cart_loading flex hidden absolute inset-0 bg-gray-950 bg-opacity-75 items-center justify-center"
+                >
+                  <div class="custom-loader"></div>
+                </div>
+
+                <div
+                  class="flex h-full w-[97vw] sm:w-auto flex-col bg-white shadow-xl px-4 py-6 sm:px-6"
+                >
+                  <!-- HEADER -->
+                  <div class="flex items-start justify-between">
+                    <h2
+                      class="text-lg font-medium text-gray-900"
+                      id="slide-over-title"
+                    >
+                      Giỏ Hàng
+                    </h2>
+                    <div class="ml-3 flex h-7 items-center">
+                      <button
+                        id="close-cart"
+                        type="button"
+                        class="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                      >
+                        <span class="sr-only">Close panel</span>
+                        <svg
+                          class="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- LIST -->
+                  <div class="flex flex-col flex-1 overflow-y-auto mt-8">
+                    <div class="flow-root">
+                      <!-- CART-LIST -->
+                      <ul
+                        role="list"
+                        class="cart_list sm:w-[29rem] -my-6 divide-y divide-gray-200"
+                      >
+                        <li class="flex py-6">
+                          <div
+                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                          >
+                            <img
+                              src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                              alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                              class="h-full w-full object-cover object-center"
+                            />
+                          </div>
+
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div
+                                class="flex justify-between text-base font-medium text-gray-900"
+                              >
+                                <h3>
+                                  <a href="#">Throwback Hip Bag</a>
+                                </h3>
+                                <p class="ml-4">$90.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Salmon</p>
+                            </div>
+                            <div
+                              class="flex flex-1 items-end justify-between text-sm"
+                            >
+                              <div
+                                class="flex items-center gap-2 justify-center font-semibold"
+                              >
+                                <p>Số Lượng:</p>
+                                <button class="btn btn-white">
+                                  <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <p>10</p>
+                                <button class="btn btn-white">
+                                  <i class="fa-solid fa-plus"></i>
+                                </button>
+                              </div>
+                              <div
+                                class="flex items-center gap-2 justify-center font-semibold"
+                              >
+                                <button class="btn btn-blue">Remove</button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex py-6">
+                          <div
+                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                          >
+                            <img
+                              src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                              alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                              class="h-full w-full object-cover object-center"
+                            />
+                          </div>
+
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div
+                                class="flex justify-between text-base font-medium text-gray-900"
+                              >
+                                <h3>
+                                  <a href="#">Medium Stuff Satchel</a>
+                                </h3>
+                                <p class="ml-4">$32.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Blue</p>
+                            </div>
+                            <div
+                              class="flex flex-1 items-end justify-between text-sm"
+                            >
+                              <p class="text-gray-500">Qty 1</p>
+
+                              <div class="flex">
+                                <button
+                                  type="button"
+                                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex py-6">
+                          <div
+                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                          >
+                            <img
+                              src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                              alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                              class="h-full w-full object-cover object-center"
+                            />
+                          </div>
+
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div
+                                class="flex justify-between text-base font-medium text-gray-900"
+                              >
+                                <h3>
+                                  <a href="#">Medium Stuff Satchel</a>
+                                </h3>
+                                <p class="ml-4">$32.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Blue</p>
+                            </div>
+                            <div
+                              class="flex flex-1 items-end justify-between text-sm"
+                            >
+                              <p class="text-gray-500">Qty 1</p>
+
+                              <div class="flex">
+                                <button
+                                  type="button"
+                                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex py-6">
+                          <div
+                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                          >
+                            <img
+                              src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                              alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                              class="h-full w-full object-cover object-center"
+                            />
+                          </div>
+
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div
+                                class="flex justify-between text-base font-medium text-gray-900"
+                              >
+                                <h3>
+                                  <a href="#">Medium Stuff Satchel</a>
+                                </h3>
+                                <p class="ml-4">$32.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Blue</p>
+                            </div>
+                            <div
+                              class="flex flex-1 items-end justify-between text-sm"
+                            >
+                              <p class="text-gray-500">Qty 1</p>
+
+                              <div class="flex">
+                                <button
+                                  type="button"
+                                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex py-6">
+                          <div
+                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                          >
+                            <img
+                              src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                              alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                              class="h-full w-full object-cover object-center"
+                            />
+                          </div>
+
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div
+                                class="flex justify-between text-base font-medium text-gray-900"
+                              >
+                                <h3>
+                                  <a href="#">Medium Stuff Satchel</a>
+                                </h3>
+                                <p class="ml-4">$32.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Blue</p>
+                            </div>
+                            <div
+                              class="flex flex-1 items-end justify-between text-sm"
+                            >
+                              <p class="text-gray-500">Qty 1</p>
+
+                              <div class="flex">
+                                <button
+                                  type="button"
+                                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex py-6">
+                          <div
+                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                          >
+                            <img
+                              src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                              alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                              class="h-full w-full object-cover object-center"
+                            />
+                          </div>
+
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div
+                                class="flex justify-between text-base font-medium text-gray-900"
+                              >
+                                <h3>
+                                  <a href="#">Medium Stuff Satchel</a>
+                                </h3>
+                                <p class="ml-4">$32.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Blue</p>
+                            </div>
+                            <div
+                              class="flex flex-1 items-end justify-between text-sm"
+                            >
+                              <p class="text-gray-500">Qty 1</p>
+
+                              <div class="flex">
+                                <button
+                                  type="button"
+                                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                                >
+                                  Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- More products... -->
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- FOOTER -->
+                  <div class="border-t border-gray-200 py-6">
+                    <div
+                      class="flex justify-between text-base font-medium text-gray-900"
+                    >
+                      <p>Tổng cộng</p>
+                      <p class="price_all"></p>
+                    </div>
+                    <p class="mt-0.5 text-sm text-gray-500">
+                      Vận chuyển và thuế được tính khi thanh toán.
+                    </p>
+                    <div class="mt-6">
+                      <button
+                        type="button"
+                        class="cart_order btn btn-blue w-full flex gap-4 items-center justify-center !px-6 !py-4 disabled:cursor-not-allowed !text-lg"
+                      >
+                        Thanh toán
+                      </button>
+                    </div>
+                    <div
+                      class="mt-6 flex justify-center text-center text-sm text-gray-500"
+                    >
+                      <p>
+                        hoặc
+                        <button
+                          type="button"
+                          class="continue_shopping font-medium text-indigo-600 hover:text-indigo-500"
+                        >
+                          Tiếp tục mua sắm.
+                          <span aria-hidden="true"> &rarr;</span>
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 text-sm leading-6 z-50">
+      <div
+        class="max-w-7xl mx-auto divide-y divide-slate-200 px-4 sm:px-6 md:px-8 dark:divide-slate-700"
+      >
+        <div class="flex">
+          <div
+            class="flex-none w-1/2 space-y-10 sm:space-y-8 lg:flex lg:space-y-0"
+          >
+            <div class="lg:flex-none lg:w-1/2">
+              <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                Getting Started
+              </h2>
+              <ul class="mt-3 space-y-2">
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Installation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Editor Setup</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Preprocessors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Production</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Browser Support</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Upgrade Guide</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lg:flex-none lg:w-1/2">
+              <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                Core Concepts
+              </h2>
+              <ul class="mt-3 space-y-2">
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Fundamentals</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Other States</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Responsive Design</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Dark Mode</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Reusing Styles</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Styles</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="flex-none w-1/2 space-y-10 sm:space-y-8 lg:flex lg:space-y-0"
+          >
+            <div class="lg:flex-none lg:w-1/2">
+              <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                Customization
+              </h2>
+              <ul class="mt-3 space-y-2">
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Configuration</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Content</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Theme Configuration</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Customizing Screens</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Customizing Colors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Customizing Spacing</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lg:flex-none lg:w-1/2">
+              <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                Community
+              </h2>
+              <ul class="mt-3 space-y-2">
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >GitHub</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Discord</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >Twitter</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-slate-300"
+                    href="#"
+                    >YouTube</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-16 pt-10">
+          <img
+            class="h-16 hidden dark:block"
+            src="../../asset/img/logo-white.png"
+            alt=""
+          />
+          <img
+            class="h-16 dark:hidden"
+            src="../../asset/img/logo-dark.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </footer>
+
+    <!-- TOAST -->
+    <script src="../../vendor/toastify/toastify.js"></script>
+
+    <!-- AXIOS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"
+      integrity="sha512-nnNHpffPSgINrsR8ZAIgFUIMexORL5tPwsfktOTxVYSv+AUAILuFYWES8IHl+hhIhpFGlKvWFiz9ZEusrPcSBQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- JS -->
+    <script type="module" src="../src/view/customer_view.js"></script>
+  </body>
+</html>
